@@ -1,3 +1,36 @@
+# Cadastro Usuários Frontend
+
+## Hora início 25/02/2025 23:20
+## Hora fim    26/02/2025 00:48 
+
+## Hora início 26/02/2025 13:00
+## Hora início 26/02/2025 14:35
+
+## Hora início 26/02/2025 14:50
+## Hora início 26/02/2025 15:02 
+
+## Hora início 26/02/2025 15:05
+## Hora início 26/02/2025 15:12
+
+## Hora início 26/02/2025 16:45
+## Hora início 26/02/2025 17:28
+
+## Hora início 26/02/2025 18:32
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
