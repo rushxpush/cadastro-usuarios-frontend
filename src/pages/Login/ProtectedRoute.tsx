@@ -8,6 +8,7 @@ export function ProtectedRoute({ children }: { children: JSX.Element }) {
   if (isLoading) {
     return <div>Loading...</div>
   }
+  console.log('isValid: ', isValid)
   
   if (!isValid) {
     return <Navigate to='/login' replace />;

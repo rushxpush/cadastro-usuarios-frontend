@@ -23,3 +23,7 @@ export const apiLogin = async (name: string, password: string): Promise<string |
     return undefined;
   }
 }
+
+export const validateToken = async (token: string) => {
+  return true;
+}

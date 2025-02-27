@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Input } from "../../components/form/Input";
 import { Button } from "../../components/ui/Button";
+import { createUser } from "../../components/api/usersAPI";
+import { useAuth } from "../../context/AuthContext";
 
 export function UserCreate() {
   const [name, setName] = useState('');
@@ -8,30 +10,10 @@ export function UserCreate() {
   const [password, setPassword] = useState('');
   const [type, setType] = useState('');
 
-  const submitPostRequest = async () => {
-    const url = 'http://localhost:3000/users';
-    console.log('submitPostRequest')
-    
-    try {
-      const response = await fetch(url, {
-        method: 'POST',
-        body: JSON.stringify({
-          name, 
-          email,
-          password,
-          type
-        }),
-        headers: {
-          "Content-Type": "application/json"
-        }
-      })
+  const { token, logout } = useAuth();
 
-      console.log(response)
-    }
-    catch(error) {
-      console.log('error: ', error);
-    }
-
+  const submitPostRequest = () => {
+    createUser(name, email, type, password, logout, token);
   }
 
   return (

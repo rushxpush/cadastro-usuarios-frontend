@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { apiLogin } from "../components/api/authAPI";
+import { apiLogin, validateToken } from "../components/api/authAPI";
 import { clearAuthToken, getAuthToken, setAuthToken } from "../utils/storage";
 import { useNavigate } from "react-router";
 
@@ -16,7 +16,7 @@ export const AuthContext = createContext<AuthContextType | undefined>(undefined)
 export const AuthProvider = ({children}: { children: React.ReactNode }) => {
   const [ token, setToken ] = useState('');
   const [ isLoading, setIsLoading ] = useState(true);
-  const [ isValid, setIsValid ] = useState(true);
+  const [ isValid, setIsValid ] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -25,6 +25,25 @@ export const AuthProvider = ({children}: { children: React.ReactNode }) => {
     if (storedToken) { 
       setToken(storedToken) 
     };
+
+    const checkToken = async () => {
+      const storedToken = getAuthToken();
+      if (storedToken) {
+        const isValid = await validateToken(storedToken);
+        if (isValid) {
+          setToken(storedToken);
+          setIsValid(true)
+        } else {
+          clearAuthToken();
+          setToken('');
+          setIsValid(false);
+          navigate("/login");
+        }
+      }
+      setIsLoading(false);
+    };
+
+    checkToken();
 
     setIsLoading(false)
   }, []);
