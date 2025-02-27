@@ -7,7 +7,7 @@ export function Layout() {
     <div className="flex-row content-center">
       <Navbar />
       <Outlet />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
