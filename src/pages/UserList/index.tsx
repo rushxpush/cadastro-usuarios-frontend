@@ -6,7 +6,6 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import { StatusMessage } from "../../components/utils/StatusMessage";
 import { User } from "../../components/interfaces/user.interface";
 import { useNavigate } from "react-router";
-import { getUrl } from "../../components/api";
 
 
 export function UserList() {
@@ -54,30 +53,33 @@ export function UserList() {
   }
 
   return (
-    <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-      <StatusMessage status={status} message={message} statusMessageTrigger={statusMessageTrigger} />
+  <div className="flex justify-center items-center min-h-screen">
 
-      <table className="table-auto">
-        <thead>
-          <tr>
-            <th className="text-black px-4 py-2">Nome</th>
-            <th className="text-black px-4 py-2">Email</th>
-            <th className="text-black px-4 py-2">Tipo</th>
-          </tr>
-        </thead>
-        <tbody>
-            {users.map((user, index) => (
-              <tr key={user._id} className={`${index % 2 === 0 ? "bg-gray-100" : ""}`}>
-                <td className="text-black p-3 text-center">{user.name}</td>
-                <td className="text-black p-3 text-center">{user.email}</td>
-                <td className="text-black p-3 text-center">{user.type}</td>
-                <td className="p-3 text-center"><button onClick={() => handleEditUser(user._id)}><FaPencilAlt /></button></td>
-                <td className="p-3 text-center"><button onClick={() => handleDeleteUser(user._id)}><FaRegTrashAlt /></button></td>
-              </tr>
-            ))}
-        </tbody>
-      </table>
+    <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 w-full max-w-4xl max-h-[calc(100vh-200px)] overflow-y-auto">
+        <StatusMessage status={status} message={message} statusMessageTrigger={statusMessageTrigger} />
+
+        <table className="table-auto">
+          <thead>
+            <tr>
+              <th className="text-black px-4 py-2">Nome</th>
+              <th className="text-black px-4 py-2">Email</th>
+              <th className="text-black px-4 py-2">Tipo</th>
+            </tr>
+          </thead>
+          <tbody>
+              {users.map((user, index) => (
+                <tr key={user._id} className={`${index % 2 === 0 ? "bg-gray-100" : ""}`}>
+                  <td className="text-black p-3 text-center">{user.name}</td>
+                  <td className="text-black p-3 text-center">{user.email}</td>
+                  <td className="text-black p-3 text-center">{user.type}</td>
+                  <td className="p-3 text-center"><button onClick={() => handleEditUser(user._id)}><FaPencilAlt /></button></td>
+                  <td className="p-3 text-center"><button onClick={() => handleDeleteUser(user._id)}><FaRegTrashAlt /></button></td>
+                </tr>
+              ))}
+          </tbody>
+        </table>
 
     </div>
+  </div>
   )
 }
