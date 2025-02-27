@@ -17,11 +17,10 @@ createRoot(document.getElementById('root')!).render(
       <AuthProvider>
         <Routes>
           <Route path="/" element={<Layout />}>
-            {/* <Route path="/" element={<App />} /> */}
+            <Route path="/" element={ <ProtectedRoute><UserCreate /></ProtectedRoute> } />
             <Route path="/cadastrar-usuario" element={ <ProtectedRoute><UserCreate /></ProtectedRoute> } />
             <Route path="/lista-de-usuarios" element={ <ProtectedRoute><UserList /></ProtectedRoute> } />
             <Route path="/editar-usuario/:id" element={ <ProtectedRoute><UserUpdate /></ProtectedRoute> } />
-            {/* <Route path="/lista-de-usuarios" element={<UserUpdate />} /> */}
             <Route path="/login" element={<Login />} />
           </Route>
         </Routes>
