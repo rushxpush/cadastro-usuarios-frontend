@@ -9,6 +9,7 @@ import { AuthProvider } from './context/AuthContext.tsx'
 import { ProtectedRoute } from './pages/Login/ProtectedRoute.tsx'
 import { UserList } from './pages/UserList/index.tsx'
 import { Layout } from './components/layout/Layout.tsx'
+import { UserUpdate } from './pages/UserUpdate/index.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -19,6 +20,7 @@ createRoot(document.getElementById('root')!).render(
             {/* <Route path="/" element={<App />} /> */}
             <Route path="/cadastrar-usuario" element={ <ProtectedRoute><UserCreate /></ProtectedRoute> } />
             <Route path="/lista-de-usuarios" element={ <ProtectedRoute><UserList /></ProtectedRoute> } />
+            <Route path="/editar-usuario/:id" element={ <ProtectedRoute><UserUpdate /></ProtectedRoute> } />
             {/* <Route path="/lista-de-usuarios" element={<UserUpdate />} /> */}
             <Route path="/login" element={<Login />} />
           </Route>

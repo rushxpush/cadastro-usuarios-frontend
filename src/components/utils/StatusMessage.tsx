@@ -30,7 +30,7 @@ export function StatusMessage({ status, message, statusMessageTrigger }: StatusM
 
   return (
     <div className={`fixed top-5 right-5 p-3 rounded text-white transition-opacity duration-500 ease-in-out
-      ${status === 200 ? "bg-green-500" : "bg-red-500"} 
+      ${status === 200 || status === 201 ? "bg-green-500" : "bg-red-500"} 
       ${show ? "opacity-100" : "opacity-0"}`}
 
     >

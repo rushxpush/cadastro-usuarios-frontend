@@ -1,16 +1,13 @@
 import { useEffect, useState } from "react"
-import { deleteUser, fetchUsers, patchUser } from "../../components/api/usersAPI";
+import { deleteUser, fetchUsers } from "../../components/api/usersAPI";
 import { useAuth } from "../../context/AuthContext";
 import { FaPencilAlt } from "react-icons/fa";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { StatusMessage } from "../../components/utils/StatusMessage";
+import { User } from "../../components/interfaces/user.interface";
+import { useNavigate } from "react-router";
+import { getUrl } from "../../components/api";
 
-interface User {
-  _id: string;
-  name: string;
-  email: string;
-  type: string;
-}
 
 export function UserList() {
   const { token, logout } = useAuth();
@@ -22,6 +19,8 @@ export function UserList() {
 
   const [ reload, setReload ] = useState<number>(0);
   const [ statusMessageTrigger, setStatusMessageTrigger ] = useState<number>(0);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -39,13 +38,8 @@ export function UserList() {
 
   const refreshUsers = () => setReload((prev) => prev + 1);
 
-  const handleEditUser = async (_id: string, name: string, email: string, type: string) => {
-    // const response = await patchUser(_id, name, email, type, logout, token);
-
-    // if (response) {
-    //   setStatus(response.status);
-    //   setMessage(response.statusText);
-    // }
+  const handleEditUser = async (_id: string) => {
+    navigate(`/editar-usuario/${_id}`);
   }
 
   const handleDeleteUser = async (_id: string) => {
@@ -77,7 +71,7 @@ export function UserList() {
                 <td className="text-black p-3 text-center">{user.name}</td>
                 <td className="text-black p-3 text-center">{user.email}</td>
                 <td className="text-black p-3 text-center">{user.type}</td>
-                <td className="p-3 text-center"><button onClick={() => handleEditUser(user._id, user.name, user.email, user.type)}><FaPencilAlt /></button></td>
+                <td className="p-3 text-center"><button onClick={() => handleEditUser(user._id)}><FaPencilAlt /></button></td>
                 <td className="p-3 text-center"><button onClick={() => handleDeleteUser(user._id)}><FaRegTrashAlt /></button></td>
               </tr>
             ))}

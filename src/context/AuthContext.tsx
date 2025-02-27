@@ -46,7 +46,7 @@ export const AuthProvider = ({children}: { children: React.ReactNode }) => {
     checkToken();
 
     setIsLoading(false)
-  }, []);
+  }, [navigate]);
 
   const login = async (name: string, password: string) => {
     const token = await apiLogin(name, password);

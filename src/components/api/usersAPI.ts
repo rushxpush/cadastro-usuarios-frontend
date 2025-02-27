@@ -23,6 +23,12 @@ export const fetchUsers = async (token: string, logout: () => void) => {
   });
 };
 
+export const fetchUserById = async (_id: string,token: string, logout: () => void) => {
+  return await apiFetch(url + `/${_id}`, token, logout, {
+    method: 'GET'
+  });
+};
+
 export const deleteUser = async (_id: string, token: string, logout: () => void) => {
   return await apiFetch(url + `/${_id}`, token, logout, {
     method: 'DELETE'
