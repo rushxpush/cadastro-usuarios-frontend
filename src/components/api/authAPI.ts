@@ -25,5 +25,6 @@ export const apiLogin = async (name: string, password: string): Promise<string |
 }
 
 export const validateToken = async (token: string) => {
+  console.log('token: ', token);
   return true;
 }
