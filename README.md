@@ -1,87 +1,101 @@
-# Cadastro Usuários Frontend
+# Cadastro Usuários - Frontend
 
-## Hora início 25/02/2025 23:20
-## Hora fim    26/02/2025 00:48 
+[Tecnologias](#tecnologias) | [Funcionalidades](#funcionalidades) | [Descrição](#descrição) | [Instalação](#instalação) | [Avisos](#avisos) | [Imagens](#imagens) | [Suporte](#suporte) | [Todo](#todo) 
 
-## Hora início 26/02/2025 13:00
-## Hora início 26/02/2025 14:35
+## Tecnologias
 
-## Hora início 26/02/2025 14:50
-## Hora início 26/02/2025 15:02 
+<ul>
+  <li>React</li>
+  <li>UseContext</li>
+  <li>React Router</li>
+</ul>
 
-## Hora início 26/02/2025 15:05
-## Hora início 26/02/2025 15:12
+[Ir para o topo](#cadastro-usuários---frontend)
 
-## Hora início 26/02/2025 16:45
-## Hora início 26/02/2025 17:28
+## Funcionalidades
 
-## Hora início 26/02/2025 18:32
-## Hora início 26/02/2025 23:30
+<ul>
+  <li>Cadastro de usuário</li>
+  <li>Visualização de usuários cadastrados</li>
+  <li>Edição de usuário cadastrados</li>
+  <li>Remoção de usuário cadastrados</li>
+  <li>Mensagens de status para requisições de POST, PATCH e DELETE</li>
+  <li>Redirecionamento para tela de login em caso de token expirado ou não armazenado no local storage</li>
+</ul>
 
-## Hora início 26/02/2025 00:27
+[Ir para o topo](#cadastro-usuários---frontend)
 
+## Descrição
 
+Frontend do projeto Cadastro de Usuários. Descrição do desafio:
 
+SPS REACT TEST
 
+Criar um CRUD de usuários
 
+Regras
+- Criar a página de signIn para fazer a autenticação do usuário (Usar o usuário previamente cadastrado para validar)
+- Pode usar qualquer tipo de storage para guardar o token
+- Só será possível cadastrar e/ou visualizar os usuários se estiver autenticado
+- Chamar a API que foi criada anteriormente (test-sps-server) 
 
+[Ir para o topo](#cadastro-usuários---frontend)
 
+## Instalação
 
-
-
-
-
-
-
-
-
-# React + TypeScript + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+1. Crie uma pasta para o projeto e entre nela
+```bash
+mkdir cadastro-usuarios 
+cd cadastro-usuarios
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+2. Clone o repositório do frontend e entre na pasta criada
+```bash
+git clone git@github.com:rushxpush/cadastro-usuarios-frontend.git
+cd cadastro-usuarios-frontend
 ```
+
+3. Abra uma outra aba do terminal sem fechar a primeira, entre na pasta cadastro-usuarios, clone o repositório do backend e entre na pasta criada
+```bash
+git clone git@github.com:rushxpush/cadastro-usuarios-backend.git
+cd cadastro-usuarios-backend
+```
+
+4. Em ambas abas do terminal abertas, rode o comando abaixo para montar a imagem e rodar o app:
+```bash
+docker compose up --build
+```
+
+5. Acesse a página em [localhost:8000](http://localhost:8000) (Usuário: admin | Senha: 1234)
+
+6. Porta do backend em [localhost:3000](http://localhost:3000)
+
+[Ir para o topo](#cadastro-usuários---frontend)
+
+## Avisos
+
+Futuros avisos
+
+[Ir para o topo](#cadastro-usuários---frontend)
+
+## Imagens
+
+![Alt text](Screenshot_1.png)
+
+![Alt text](Screenshot_2.png)
+
+[Ir para o topo](#cadastro-usuários---frontend)
+
+## Suporte
+
+Qualquer dúvida mande um email para [rafagarciadev@gmail.com](mailto:rafagarciadev@gmail.com)
+
+[Ir para o topo](#cadastro-usuários---frontend)
+
+## Todo 
+
+- &#x2610; Testes unitários
+- &#x2610; Testes e2e 
+- &#x2610; Estilizar para mobile
+
+[Ir para o topo](#cadastro-usuários---frontend)
