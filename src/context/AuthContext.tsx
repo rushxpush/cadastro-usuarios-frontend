@@ -50,17 +50,20 @@ export const AuthProvider = ({children}: { children: React.ReactNode }) => {
 
   const login = async (name: string, password: string) => {
     const token = await apiLogin(name, password);
+    console.log('-- login --')
     console.log('token: ', token)
     if (!token) return;
 
     setAuthToken(token);
     setToken(token);
+    setIsValid(true);
     navigate('/cadastrar-usuario');
   }
 
   const logout = (): void => {
     clearAuthToken();
     setToken('');
+    setIsValid(false);
     navigate('/login');
   }
   
