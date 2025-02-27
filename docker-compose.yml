@@ -1,6 +1,7 @@
 services:
   frontend:
     build: .
+    container_name: vite-react-app
     ports:
-      - "4173:4173"
+      - "3000:80"
     restart: always
