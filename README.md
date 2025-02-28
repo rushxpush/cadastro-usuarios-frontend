@@ -84,7 +84,7 @@ Futuros avisos
 
 ![Alt text](Screenshot_2.png)
 
-![Alt text](Screenshot_2.png)
+![Alt text](Screenshot_3.png)
 
 [Ir para o topo](#cadastro-usuários---frontend)
 
